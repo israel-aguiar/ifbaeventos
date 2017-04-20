@@ -1,4 +1,4 @@
-package util;
+package br.edu.ifba.bru.sistemas.ifbaeventos.util;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;

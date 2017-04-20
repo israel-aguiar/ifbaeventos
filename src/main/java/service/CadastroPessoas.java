@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 import javax.inject.Inject;
 
-import model.Pessoa;
+import br.edu.ifba.bru.sistemas.ifbaeventos.model.Pessoa;
+import br.edu.ifba.bru.sistemas.ifbaeventos.util.Transactional;
 import repository.Pessoas;
-import util.Transactional;
 
 public class CadastroPessoas implements Serializable{
 

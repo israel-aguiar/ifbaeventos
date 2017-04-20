@@ -1,8 +1,7 @@
-package controller;
+package br.edu.ifba.bru.sistemas.ifbaeventos.controller;
 import java.io.Serializable;
 import java.util.List;
 
-import model.Pessoa;
 import repository.Pessoas;
 import service.CadastroPessoas;
 import service.NegocioException;
@@ -11,6 +10,8 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import br.edu.ifba.bru.sistemas.ifbaeventos.model.Pessoa;
 
 //@ManagedBean
 //@ViewScoped

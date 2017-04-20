@@ -3,7 +3,7 @@
 	<persistence-unit name="EvenPU">
 	
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>model.Pessoa</class>
+		<class>br.edu.ifba.bru.sistemas.ifbaeventos.model.Pessoa</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/ifbabru_ifbaeventos" />
 			<property name="javax.persistence.jdbc.user" value="ifba" />

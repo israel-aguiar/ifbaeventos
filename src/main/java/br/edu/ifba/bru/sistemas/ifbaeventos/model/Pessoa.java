@@ -1,4 +1,4 @@
-package model;
+package br.edu.ifba.bru.sistemas.ifbaeventos.model;
 
 import java.io.Serializable;
 

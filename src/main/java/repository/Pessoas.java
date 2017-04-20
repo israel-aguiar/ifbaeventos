@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import model.Pessoa;
+import br.edu.ifba.bru.sistemas.ifbaeventos.model.Pessoa;
 
 public class Pessoas implements Serializable{
 

@@ -1,3 +1,4 @@
+package br.edu.ifba.bru.sistemas.ifbaeventos;
 
 
 import javax.persistence.Persistence;

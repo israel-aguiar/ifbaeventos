@@ -4,7 +4,7 @@
 	version="1.1" bean-discovery-mode="all">
 	<interceptors>
 		<class>
-			util.TransactionInterceptor
+			br.edu.ifba.bru.sistemas.ifbaeventos.util.TransactionInterceptor
 		</class>
 	</interceptors>
 </beans>

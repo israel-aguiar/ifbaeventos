@@ -1,4 +1,4 @@
-package converter;
+package br.edu.ifba.bru.sistemas.ifbaeventos.converter;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -6,7 +6,7 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
-import model.Pessoa;
+import br.edu.ifba.bru.sistemas.ifbaeventos.model.Pessoa;
 import repository.Pessoas;
 
 @FacesConverter(forClass = Pessoa.class)

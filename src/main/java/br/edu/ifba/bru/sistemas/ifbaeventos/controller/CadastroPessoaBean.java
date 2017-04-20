@@ -1,4 +1,4 @@
-package controller;
+package br.edu.ifba.bru.sistemas.ifbaeventos.controller;
 
 import java.io.Serializable;
 
@@ -7,7 +7,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import model.Pessoa;
+import br.edu.ifba.bru.sistemas.ifbaeventos.model.Pessoa;
 import service.CadastroPessoas;
 import service.NegocioException;
 

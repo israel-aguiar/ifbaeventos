@@ -7,7 +7,7 @@
     
     <application>
 		<message-bundle>
-			resources.Messages
+			br.edu.ifba.bru.sistemas.ifbaeventos.resources.Messages
 		</message-bundle>
 	</application>
 	    

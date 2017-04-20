@@ -1,4 +1,4 @@
-package util;
+package br.edu.ifba.bru.sistemas.ifbaeventos.util;
 
 import java.io.Serializable;
 
