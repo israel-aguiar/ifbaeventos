@@ -66,4 +66,8 @@ local.properties
 
 # Code Recommenders
 .recommenders/
+
+# Arquivo temporario do Dolphin (Gerenciador de arquivos Linux)
+.directory
+
 /build/
