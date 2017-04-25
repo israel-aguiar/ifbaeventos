@@ -1,52 +1,34 @@
 package br.edu.ifba.bru.sistemas.ifbaeventos.model;
 
-import java.io.Serializable;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.*;
-
-import org.hibernate.validator.constraints.NotEmpty;
-
 
 @Entity
-@Table(name="PESSOA")
-public class Pessoa implements Serializable{
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+@Table(name = "MINISTRANTE")
+public class Ministrante {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty
-	@Size(max = 80)
-	@Column(length = 80, nullable = false)
 	private String nome;
-
-	@NotEmpty
-	@Size(max = 100)
-	@Column(length = 100, nullable = false)
-	private String email;
-
-	@Size(min = 4, max = 8)
-	private String senha;
 	
-	@NotEmpty
-	@Size(max = 15)
-	private String cpf;
+	private String email;
+	
+	private String telefone;
+	
+	private String formacao;
+
+	public Ministrante() {
+	}
 
 	public Long getId() {
 		return id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -54,6 +36,7 @@ public class Pessoa implements Serializable{
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -61,26 +44,27 @@ public class Pessoa implements Serializable{
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	public String getSenha() {
-		return senha;
-	}
-	
-	public void setSenha(String senha) {
-		this.senha = senha;
+
+	public String getTelefone() {
+		return telefone;
 	}
 
-	public String getCpf() {
-		return cpf;
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
-	
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+
+	public String getFormacao() {
+		return formacao;
 	}
-	
+
+	public void setFormacao(String formacao) {
+		this.formacao = formacao;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -88,7 +72,7 @@ public class Pessoa implements Serializable{
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -97,7 +81,7 @@ public class Pessoa implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Pessoa other = (Pessoa) obj;
+		Ministrante other = (Ministrante) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -105,5 +89,7 @@ public class Pessoa implements Serializable{
 			return false;
 		return true;
 	}
+	
+	
 
 }
