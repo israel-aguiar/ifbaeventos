@@ -13,8 +13,7 @@ public class EntityManagerProducer {
 	private EntityManagerFactory factory;
 	
 	public EntityManagerProducer() {
-		this.factory = Persistence.createEntityManagerFactory(
-				"EvenPU");
+		this.factory = Persistence.createEntityManagerFactory("ifbaeventos");
 	}
 	
 	@Produces
