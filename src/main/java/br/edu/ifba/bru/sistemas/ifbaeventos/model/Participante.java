@@ -11,11 +11,12 @@ import javax.persistence.Table;
 import javax.validation.constraints.*;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.br.CPF;
 
 
 @Entity
-@Table(name="PESSOA")
-public class Pessoa implements Serializable{
+@Table(name="PARTICIPANTE")
+public class Participante implements Serializable{
 
 	/**
 	 * 
@@ -39,6 +40,7 @@ public class Pessoa implements Serializable{
 	@Size(min = 4, max = 8)
 	private String senha;
 	
+	@CPF
 	@NotEmpty
 	@Size(max = 15)
 	private String cpf;
@@ -97,7 +99,7 @@ public class Pessoa implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Pessoa other = (Pessoa) obj;
+		Participante other = (Participante) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

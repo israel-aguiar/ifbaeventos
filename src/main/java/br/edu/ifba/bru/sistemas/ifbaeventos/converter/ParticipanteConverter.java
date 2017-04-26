@@ -6,22 +6,22 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
-import br.edu.ifba.bru.sistemas.ifbaeventos.model.Pessoa;
-import repository.Pessoas;
+import br.edu.ifba.bru.sistemas.ifbaeventos.model.Participante;
+import br.edu.ifba.bru.sistemas.repository.Participantes;
 
-@FacesConverter(forClass = Pessoa.class)
-public class PessoaConverter implements Converter{
+@FacesConverter(forClass = Participante.class)
+public class ParticipanteConverter implements Converter{
 
 	@Inject
-	private Pessoas pessoas;
+	private Participantes participantes;
 	
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
 		
-		Pessoa retorno = null;
+		Participante retorno = null;
 		
 		if (value != null && !"".equals(value)){  
-			retorno =  this.pessoas.porId(new Long(value));  //pessoas.porId(new Long(value));
+			retorno =  this.participantes.porId(new Long(value));  //participantes.porId(new Long(value));
 		}
 		
 		return retorno;
@@ -31,7 +31,7 @@ public class PessoaConverter implements Converter{
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
 		// TODO Auto-generated method stub
-		Pessoa p = (Pessoa) value;
+		Participante p = (Participante) value;
 		if (p != null && p.getId() != null) {
 			return p.getId().toString();
 		}

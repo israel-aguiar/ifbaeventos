@@ -1,4 +1,4 @@
-package service;
+package br.edu.ifba.bru.sistemas.service;
 
 public class NegocioException extends Exception{
 

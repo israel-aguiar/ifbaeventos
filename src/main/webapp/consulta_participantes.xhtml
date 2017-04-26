@@ -8,15 +8,15 @@
 	<ui:define name="content">
 
 		<f:metadata>
-			<f:viewAction action="#{consultaPessoasBean.consultar}" />
+			<f:viewAction action="#{consultaParticipantesBean.consultar}" />
 		</f:metadata>
 
-		<h1 class="aw-page-title">Consulta Pessoas</h1>
+		<h1 class="aw-page-title">Consulta Participantes</h1>
 		
 		<h:form id="frm">
 			<p:toolbar>
 				<p:toolbarGroup>
-					<p:button icon="fa fa-plus" value="Nova Pessoa" outcome="/CadastroPessoa">
+					<p:button icon="fa fa-plus" value="Novo Participante" outcome="/cadastro_participante">
 						<f:param name="id" value=""/>
 					</p:button>
 				</p:toolbarGroup>
@@ -24,29 +24,29 @@
 			
 			<p:messages showDetail="false" showSummary="true" autoUpdate="true"/>
 			
-			<p:dataTable value="#{consultaPessoasBean.pessoas}" var="pessoa" 
+			<p:dataTable value="#{consultaParticipantesBean.participantes}" var="participante" 
 					emptyMessage="Nenhum item adicionado."
 					stickyHeader="true" reflow="true" 
 					paginator="true" paginatorPosition="bottom" rows="10">
-				<p:column headerText="Pessoa" sortBy="#{pessoa.nome}">
-					<h:outputText value="#{pessoa.nome}" />
+				<p:column headerText="Participante" sortBy="#{participante.nome}">
+					<h:outputText value="#{participante.nome}" />
 				</p:column>
 				<p:column headerText="CPF">
-					<h:outputText value="#{pessoa.cpf}" />
+					<h:outputText value="#{participante.cpf}" />
 				</p:column>
 				<p:column headerText="Email">
-					<h:outputText value="#{pessoa.email}" />
+					<h:outputText value="#{participante.email}" />
 				</p:column>
 				<p:column headerText="Ações" style="width:72px">
 					<p:button icon="ui-icon-pencil" title="Editar"
-						outcome="/CadastroPessoa">
-						<f:param name="id" value="#{pessoa.id}" />
+						outcome="/cadastro_participante">
+						<f:param name="id" value="#{participante.id}" />
 					</p:button>
 					
 					<p:commandButton icon="ui-icon-trash" title="Excluir" process="@this"
-						update="@form" action="#{consultaPessoasBean.excluir}">
-						<f:setPropertyActionListener value="#{pessoa}"
-						target="#{consultaPessoasBean.pessoaSelecionada}" />
+						update="@form" action="#{consultaParticipantesBean.excluir}">
+						<f:setPropertyActionListener value="#{participante}"
+						target="#{consultaParticipantesBean.participanteSelecionado}" />
 					</p:commandButton>
 				</p:column>
 

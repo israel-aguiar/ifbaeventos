@@ -7,16 +7,16 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import br.edu.ifba.bru.sistemas.ifbaeventos.model.Pessoa;
-import service.CadastroPessoas;
-import service.NegocioException;
+import br.edu.ifba.bru.sistemas.ifbaeventos.model.Participante;
+import br.edu.ifba.bru.sistemas.service.CadastroParticipantes;
+import br.edu.ifba.bru.sistemas.service.NegocioException;
 
 
 //@ManagedBean
 //@ViewScoped
 @Named
 @javax.faces.view.ViewScoped
-public class CadastroPessoaBean implements Serializable{
+public class CadastroParticipanteBean implements Serializable{
 
 	/**
 	 * 
@@ -24,25 +24,25 @@ public class CadastroPessoaBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Inject
-	private CadastroPessoas cadastro;
+	private CadastroParticipantes cadastro;
 	
 		
-	private Pessoa pessoa;// = new Pessoa();
+	private Participante participante;// = new Participante();
 	
 	public void prepararCadastro(){
-		if (this.pessoa == null){
-			this.pessoa = new Pessoa();
+		if (this.participante == null){
+			this.participante = new Participante();
 		}
 	}
 	
 	public void salvar() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		try {
-			this.cadastro.salvar(this.pessoa);
+			this.cadastro.salvar(this.participante);
 			
-			//this.pessoa = new Pessoa();
+			//this.pessoa = new Participante();
 			context.addMessage(null, new FacesMessage(
-					"Pessoa salva com sucesso!"));
+					"Participante salvo com sucesso!"));
 		
 		} catch (NegocioException e) {
 			FacesMessage mensagem = new FacesMessage(e.getMessage());
@@ -52,12 +52,12 @@ public class CadastroPessoaBean implements Serializable{
 
 	}
 
-	public Pessoa getPessoa() {
-		return pessoa;
+	public Participante getParticipante() {
+		return participante;
 	}
 
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
+	public void setParticipante(Participante participante) {
+		this.participante = participante;
 	}
 
 	
