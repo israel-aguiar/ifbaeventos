@@ -34,17 +34,18 @@ public class Atividade {
 	private String codigo;
 	
 	@Size(max = 30)
+	@Column(name = "area_atividade")
 	private String areaAtividade;
 	
 	@Column(name = "requisito_atividade", columnDefinition = "TEXT")
 	private String requisitoAtividade;
 	
 	@Min(0)
-	private int ch;
+	private Integer ch;
 	
 	@Min(0)
 	@Column(name = "vagas_total")
-	private int vagasTotal;
+	private Integer vagasTotal;
 	
 	@Transient
 	private int vagasDisponiveis;
@@ -55,6 +56,7 @@ public class Atividade {
 	@Size(max = 11)
 	private String turno;
 	
+	@Column(columnDefinition = "TEXT")
 	private String descricao;
 	
 	@ManyToOne

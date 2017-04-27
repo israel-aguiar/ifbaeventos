@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.*;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -32,6 +33,7 @@ public class Participante implements Serializable{
 	@Column(length = 80, nullable = false)
 	private String nome;
 
+	@Email
 	@NotEmpty
 	@Size(max = 100)
 	@Column(length = 100, nullable = false)

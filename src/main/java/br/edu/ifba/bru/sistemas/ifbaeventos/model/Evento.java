@@ -1,7 +1,9 @@
 package br.edu.ifba.bru.sistemas.ifbaeventos.model;
 
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -22,6 +27,20 @@ public class Evento {
 	
 	@Size(min = 5, max = 100)
 	private String nome;
+	
+	@Column(columnDefinition = "TEXT")
+	private String descricao;
+	
+	@Min(0)
+	private Integer ch;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "data_inicio")
+	private Date dataInicio;
+	
+	@Column(name = "data_fim")
+	@Temporal(TemporalType.DATE)
+	private Date dataFim;
 	
 	private boolean ativo = true;
 	
