@@ -70,6 +70,38 @@ public class Evento {
 		this.nome = nome;
 	}
 
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Integer getCh() {
+		return ch;
+	}
+
+	public void setCh(Integer ch) {
+		this.ch = ch;
+	}
+
+	public Date getDataInicio() {
+		return dataInicio;
+	}
+
+	public void setDataInicio(Date dataInicio) {
+		this.dataInicio = dataInicio;
+	}
+
+	public Date getDataFim() {
+		return dataFim;
+	}
+
+	public void setDataFim(Date dataFim) {
+		this.dataFim = dataFim;
+	}
+
 	public boolean isAtivo() {
 		return ativo;
 	}
@@ -84,6 +116,14 @@ public class Evento {
 
 	public void setOrganizador(Organizador organizador) {
 		this.organizador = organizador;
+	}
+
+	public List<Atividade> getAtividades() {
+		return atividades;
+	}
+
+	public void setAtividades(List<Atividade> atividades) {
+		this.atividades = atividades;
 	}
 
 	@Override
