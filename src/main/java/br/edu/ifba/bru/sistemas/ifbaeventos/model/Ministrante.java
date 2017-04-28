@@ -1,10 +1,15 @@
 package br.edu.ifba.bru.sistemas.ifbaeventos.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "MINISTRANTE")
@@ -14,12 +19,23 @@ public class Ministrante {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotEmpty
+	@Size(max = 100)
+	@Column(length = 100, nullable = false)
 	private String nome;
 	
+	@Email
+	@NotEmpty
+	@Size(max = 100)
+	@Column(length = 100, nullable = false)
 	private String email;
 	
+	@Size(max = 15)
+	@Column(length = 15)
 	private String telefone;
 	
+	@Size(max = 50)
+	@Column(length = 50)
 	private String formacao;
 
 	public Ministrante() {

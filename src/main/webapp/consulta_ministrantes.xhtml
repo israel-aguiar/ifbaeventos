@@ -8,15 +8,15 @@
 	<ui:define name="content">
 
 		<f:metadata>
-			<f:viewAction action="#{consultaParticipantesBean.consultar}" />
+			<f:viewAction action="#{consultaMinistrantesBean.consultar}" />
 		</f:metadata>
 
-		<h1 class="aw-page-title">Consulta Participantes</h1>
+		<h1 class="aw-page-title">Consulta Ministrantes</h1>
 		
 		<h:form id="frm">
 			<p:toolbar>
 				<p:toolbarGroup>
-					<p:button icon="fa fa-plus" value="Novo Participante" outcome="/cadastro_participante">
+					<p:button icon="fa fa-plus" value="Novo Ministrante" outcome="/cadastro_ministrante">
 						<f:param name="id" value=""/>
 					</p:button>
 				</p:toolbarGroup>
@@ -24,29 +24,32 @@
 			
 			<p:messages showDetail="false" showSummary="true" autoUpdate="true"/>
 			
-			<p:dataTable value="#{consultaParticipantesBean.participantes}" var="participante" 
+			<p:dataTable value="#{consultaMinistrantesBean.ministrantes}" var="ministrante" 
 					emptyMessage="Nenhum item adicionado."
 					stickyHeader="true" reflow="true" 
 					paginator="true" paginatorPosition="bottom" rows="10">
-				<p:column headerText="Participante" sortBy="#{participante.nome}">
-					<h:outputText value="#{participante.nome}" />
-				</p:column>
-				<p:column headerText="CPF">
-					<h:outputText value="#{participante.cpf}" converter="cpfConverter"/>
+				<p:column headerText="Ministrante" sortBy="#{ministrante.nome}">
+					<h:outputText value="#{ministrante.nome}" />
 				</p:column>
 				<p:column headerText="Email">
-					<h:outputText value="#{participante.email}" />
+					<h:outputText value="#{ministrante.email}" />
+				</p:column>
+				<p:column headerText="Telefone">
+					<h:outputText value="#{ministrante.telefone}" converter="contatoConverter"/>
+				</p:column>
+				<p:column headerText="Formação">
+					<h:outputText value="#{ministrante.formacao}" />
 				</p:column>
 				<p:column headerText="Ações" style="width:72px">
 					<p:button icon="ui-icon-pencil" title="Editar"
-						outcome="/cadastro_participante">
-						<f:param name="id" value="#{participante.id}" />
+						outcome="/cadastro_ministrante">
+						<f:param name="id" value="#{ministrante.id}" />
 					</p:button>
 					
 					<p:commandButton icon="ui-icon-trash" title="Excluir" process="@this"
-						update="@form" action="#{consultaParticipantesBean.excluir}">
-						<f:setPropertyActionListener value="#{participante}"
-						target="#{consultaParticipantesBean.participanteSelecionado}" />
+						update="@form" action="#{consultaMinistrantesBean.excluir}">
+						<f:setPropertyActionListener value="#{ministrante}"
+						target="#{consultaMinistrantesBean.ministranteSelecionado}" />
 					</p:commandButton>
 				</p:column>
 
