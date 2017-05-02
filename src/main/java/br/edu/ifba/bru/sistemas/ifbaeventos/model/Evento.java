@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -26,7 +27,7 @@ public class Evento {
 	private Long id;
 	
 	@Size(min = 5, max = 100)
-	private String nome;
+	private String titulo;
 	
 	@Column(columnDefinition = "TEXT")
 	private String descricao;
@@ -46,6 +47,7 @@ public class Evento {
 	
 	@ManyToOne
 	@JoinColumn(name = "organizador_id")
+	@NotNull
 	private Organizador organizador;
 	
 	@OneToMany
@@ -62,12 +64,12 @@ public class Evento {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setTitulo(String nome) {
+		this.titulo = nome;
 	}
 
 	public String getDescricao() {
