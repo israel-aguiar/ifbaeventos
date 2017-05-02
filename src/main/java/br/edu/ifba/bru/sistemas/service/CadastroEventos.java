@@ -25,6 +25,7 @@ public class CadastroEventos implements Serializable {
 	
 	@Transactional
 	public void excluir(Evento evento) throws NegocioException {
+		evento = this.eventos.porId(evento.getId());
 		this.eventos.remover(evento);
 	}
 	

@@ -50,7 +50,7 @@ public class Evento {
 	@NotNull
 	private Organizador organizador;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "evento")
 	private List<Atividade> atividades;
 
 	public Evento() {

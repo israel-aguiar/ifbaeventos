@@ -49,8 +49,9 @@ public class ConsultaEventosBean implements Serializable {
 			this.cadastro.excluir(this.eventoSelecionado);
 			this.consultar();
 			context.addMessage(null, new FacesMessage(
-					"Organizador excluído com sucesso!"));
+					"Evento excluído com sucesso!"));
 		} catch (NegocioException e) {
+			e.printStackTrace();
 		}
 	}
 
