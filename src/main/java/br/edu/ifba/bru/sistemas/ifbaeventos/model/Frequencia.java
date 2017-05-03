@@ -23,7 +23,7 @@ public class Frequencia implements Serializable {
 	
 	@Id
 	@ManyToOne
-	@Column(name = "participante_id")
+	@Column(name = "matricula_id")
 	private Matricula matricula;
 
 	@Id
