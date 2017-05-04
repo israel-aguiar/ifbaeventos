@@ -2,10 +2,10 @@ package br.edu.ifba.bru.sistemas.ifbaeventos.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -23,12 +23,12 @@ public class Frequencia implements Serializable {
 	
 	@Id
 	@ManyToOne
-	@Column(name = "matricula_id")
+	@JoinColumn(name = "matricula_id")
 	private Matricula matricula;
 
 	@Id
 	@ManyToOne
-	@Column(name = "horario_id")
+	@JoinColumn(name = "horario_id")
 	private Horario horario;
 
 	public Frequencia() {

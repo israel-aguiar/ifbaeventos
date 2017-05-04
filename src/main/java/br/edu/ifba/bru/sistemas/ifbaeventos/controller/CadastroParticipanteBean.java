@@ -13,7 +13,6 @@ import br.edu.ifba.bru.sistemas.service.NegocioException;
 
 
 //@ManagedBean
-//@ViewScoped
 @Named
 @javax.faces.view.ViewScoped
 public class CadastroParticipanteBean implements Serializable{
