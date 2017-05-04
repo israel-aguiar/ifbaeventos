@@ -1,7 +1,5 @@
 package br.edu.ifba.bru.sistemas.ifbaeventos.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
@@ -50,12 +46,7 @@ public class Atividade {
 	@Transient
 	private int vagasDisponiveis;
 	
-	@Temporal(TemporalType.DATE)
-	private Date data;
-	
-	@Size(max = 11)
-	private String turno;
-	
+		
 	@Column(columnDefinition = "TEXT")
 	private String descricao;
 	
@@ -114,19 +105,19 @@ public class Atividade {
 		this.requisitoAtividade = requisitoAtividade;
 	}
 
-	public int getCh() {
+	public Integer getCh() {
 		return ch;
 	}
 
-	public void setCh(int ch) {
+	public void setCh(Integer ch) {
 		this.ch = ch;
 	}
 
-	public int getVagasTotal() {
+	public Integer getVagasTotal() {
 		return vagasTotal;
 	}
 
-	public void setVagasTotal(int vagasTotal) {
+	public void setVagasTotal(Integer vagasTotal) {
 		this.vagasTotal = vagasTotal;
 	}
 
@@ -136,22 +127,6 @@ public class Atividade {
 
 	public void setVagasDisponiveis(int vagasDisponiveis) {
 		this.vagasDisponiveis = vagasDisponiveis;
-	}
-
-	public Date getData() {
-		return data;
-	}
-
-	public void setData(Date data) {
-		this.data = data;
-	}
-
-	public String getTurno() {
-		return turno;
-	}
-
-	public void setTurno(String turno) {
-		this.turno = turno;
 	}
 
 	public String getDescricao() {
