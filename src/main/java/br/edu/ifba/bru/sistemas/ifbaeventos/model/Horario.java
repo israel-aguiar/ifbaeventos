@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "HORARIO")
@@ -28,6 +29,9 @@ public class Horario implements Serializable {
 	
 	@Temporal(TemporalType.DATE)
 	private Date data;
+	
+	@Size(max = 11)
+	private String turno;
 	
 	@Temporal(TemporalType.TIME)
 	private Date horaInicio;
@@ -56,6 +60,14 @@ public class Horario implements Serializable {
 
 	public void setData(Date data) {
 		this.data = data;
+	}
+
+	public String getTurno() {
+		return turno;
+	}
+
+	public void setTurno(String turno) {
+		this.turno = turno;
 	}
 
 	public Date getHoraInicio() {
