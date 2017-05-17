@@ -98,6 +98,12 @@
 			<scope>compile</scope>
 		</dependency>
 			
+		<!-- Métodos uteis para manipulação de String, métodos e etc -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
 	</dependencies>
 
 	<build>

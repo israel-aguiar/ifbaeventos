@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.*;
 
 import org.hibernate.validator.constraints.Email;
@@ -16,7 +18,10 @@ import org.hibernate.validator.constraints.br.CPF;
 
 
 @Entity
-@Table(name="PARTICIPANTE")
+@Table(name="PARTICIPANTE",
+		uniqueConstraints = @UniqueConstraint(columnNames = "cpf"))
+@NamedQuery(name = "Participante.findParticipante",
+		query = "SELECT p FROM Participante p WHERE p.cpf = :cpf AND p.senha = :senha")
 public class Participante implements Serializable{
 
 	/**

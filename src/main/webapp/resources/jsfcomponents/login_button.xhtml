@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+
+
+<composite:interface>
+	<composite:attribute name="user_session"/>
+	<composite:attribute name="user_session_name"/>
+	
+	<composite:attribute name="button_logout_label" default="Logout"/>
+	<composite:attribute name="button_logout_action" method-signature="java.lang.String actionListener()"/>
+	
+	<composite:attribute name="dialog_login_id"/>
+	
+	<composite:attribute name="update"/>
+	
+</composite:interface>
+
+<composite:implementation>
+	
+	<h:form id="form_login_button">
+		<!-- Login / Cadastrar; Usuário / Logout -->
+		<h:panelGroup rendered="#{empty cc.attrs.user_session}">
+		
+			<h:panelGroup rendered="#{not empty cc.attrs.dialog_login_id}">
+				<p:commandLink oncomplete="PF('#{cc.attrs.dialog_login_id}').show();">
+					
+					<h:outputText value="Login" />
+				</p:commandLink>
+				<h:outputText value=" | " />
+			</h:panelGroup>
+			
+			<p:commandLink
+				oncomplete="PF('#{cc.attrs.dialog_login_id}').show();">
+				<h:outputText value="Cadastrar" />
+			</p:commandLink>
+			
+		</h:panelGroup>
+	
+		<h:panelGroup rendered="#{not empty cc.attrs.user_session}">
+		
+			<h:outputText value="#{cc.attrs.user_session.nome}" />
+			
+			<h:outputText value=" | " />
+			
+			<p:commandLink
+				actionListener="#{cc.attrs.button_logout_action}"
+				update="#{cc.attrs.update}">
+				<h:outputText value="#{cc.attrs.button_logout_label}" />
+			</p:commandLink>
+			
+		</h:panelGroup>
+	</h:form>
+	
+	
+</composite:implementation>
+
+<h:form>
+
+
+
+
+
+</h:form>
+
+</html>

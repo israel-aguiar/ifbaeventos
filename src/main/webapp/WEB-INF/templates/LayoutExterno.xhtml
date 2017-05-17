@@ -4,6 +4,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
+	xmlns:ifba="http://java.sun.com/jsf/composite/jsfcomponents"
 	>
 
 <h:head>
@@ -28,33 +29,71 @@
 <h:body>
 
 	<header class="aw-topbar">
-		<h:form id="formHeader">
-			<h:graphicImage library="algaworks" name="images/logo.png" />
-			
-			<div class="aw-toggle">
-				<p:commandLink
-					oncomplete="PF('dialog-modal-login').show();"
-					update="dialog-modal-login">
-					
-					<h:outputText value="Login" />
-				</p:commandLink>
-				<h:outputText value=" | " />
-				<p:commandLink
-					oncomplete="PF('dialog-modal-login').show();"
-					update="dialog-modal-login">
-					
-					<h:outputText value="Cadastrar" />
-				</p:commandLink>
-
-			</div>
-		</h:form>
+		<h:graphicImage library="algaworks" name="images/logo.png" />
+	
+		<a href="#" class="aw-toggle  js-toggle"><i class="fa  fa-bars"></i></a>
 		
-		<p:dialog header="Login" id="dialog-modal-login"
-			widgetVar="dialog-modal-login" modal="true" height="400px"
-			width="550px">
-			<ui:include src="/ext/panel_login.xhtml" />
+		<div class="aw-toggle">
+			<ifba:login_button id="login_button"
+							   dialog_login_id="dialog_login"
+							   user_session="#{participanteAutenticacaoBean.participanteSession}"
+							   button_logout_action="#{participanteAutenticacaoBean.logout}"
+							   update="login_button:form_login_button"/>
+				   
+			<ifba:dialog_login dialog_login_id="dialog_login"
+							   username_value="#{participanteAutenticacaoBean.participanteAutenticacao.cpf}"
+							   password_value="#{participanteAutenticacaoBean.participanteAutenticacao.senha}"
+							   mask="999.999.999-99"
+							   username_converter="cpfConverter"
+							   button_login_actionlistener="#{participanteAutenticacaoBean.efetuarLogin('dialog_login')}"
+							   update="login_button:form_login_button"/>
+		</div>
 
-		</p:dialog>
+<!-- 		<h:form id="formHeader"> -->
+<!-- 			<h:graphicImage library="algaworks" name="images/logo.png" /> -->
+			
+<!-- 			<div class="aw-toggle"> -->
+<!-- 				<h:panelGroup rendered="#{empty participanteAutenticacaoBean.participanteSession}"> -->
+<!-- 					<p:commandLink -->
+<!-- 						oncomplete="PF('dialog-modal-login').show();" -->
+<!-- 						update="dialog-modal-login"> -->
+						
+<!-- 						<h:outputText value="Login" /> -->
+<!-- 					</p:commandLink> -->
+<!-- 					<h:outputText value=" | " /> -->
+<!-- 					<p:commandLink -->
+<!-- 						oncomplete="PF('dialog-modal-login').show();" -->
+<!-- 						update="dialog-modal-login"> -->
+						
+<!-- 						<h:outputText value="Cadastrar" /> -->
+<!-- 					</p:commandLink> -->
+<!-- 				</h:panelGroup> -->
+
+<!-- 				<h:panelGroup rendered="#{not empty participanteAutenticacaoBean.participanteSession}"> -->
+<!-- 					<p:commandLink -->
+<!-- 						oncomplete="PF('dialog-modal-login').show();" -->
+<!-- 						update="dialog-modal-login"> -->
+						
+<!-- 						<h:outputText value="#{participanteAutenticacaoBean.participanteAutenticacao.nome}" /> -->
+<!-- 					</p:commandLink> -->
+<!-- 					<h:outputText value=" | " /> -->
+<!-- 					<p:commandLink -->
+<!-- 						actionListener="#{participanteAutenticacaoBean.logout}" -->
+<!-- 						> -->
+						
+<!-- 						<h:outputText value="Logout" /> -->
+<!-- 					</p:commandLink> -->
+<!-- 				</h:panelGroup> -->
+
+<!-- 			</div> -->
+<!-- 		</h:form> -->
+		
+<!-- 		<p:dialog header="Login" id="dialog-modal-login" -->
+<!-- 			widgetVar="dialog-modal-login" modal="true" height="350px" -->
+<!-- 			width="320px"> -->
+<!-- 			<ui:include src="/ext/panel_login.xhtml" /> -->
+
+<!-- 		</p:dialog> -->
 	</header>
 	
 	<aside class="aw-sidebar  js-sidebar">
